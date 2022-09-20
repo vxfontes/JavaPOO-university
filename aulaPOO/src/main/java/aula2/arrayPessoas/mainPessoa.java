@@ -1,7 +1,6 @@
 package aula2.arrayPessoas;
 
 import java.util.*;
-import static java.util.Collections.sort;
 
 /**
  *
@@ -30,6 +29,7 @@ public class mainPessoa {
         }
         
         
+        System.out.println("Printando pessoas sem ordenação alguma");
         
         for(Pessoa p: pessoas) {
             System.out.println(p.toString());
