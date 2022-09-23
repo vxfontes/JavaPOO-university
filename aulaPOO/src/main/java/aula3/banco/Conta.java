@@ -4,13 +4,12 @@ package aula3.banco;
  *
  * @author vxfontes
  */
-public class Conta {
+public abstract class Conta {
     private String numero;
     private double saldo;
 
-    public Conta(String numero, double saldo) {
+    public Conta(String numero) {
         this.numero = numero;
-        this.saldo = saldo;
     }
 
     public String getNumero() {
