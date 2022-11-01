@@ -2,9 +2,8 @@ package aula6.agenda;
 
 /**
  *
- * @author vxfontes
+ * @author vanessa e filipe
  */
 public interface AgendaFuncoes {
-    void adiciona(Contato novoContato);
     void remove(int id);
 }
