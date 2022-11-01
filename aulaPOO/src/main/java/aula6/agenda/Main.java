@@ -12,5 +12,8 @@ public class Main {
           Agenda.adiciona("nome 1", "telefone", "detalhes");
           Agenda.adiciona("nome 2", "telefone", "detalhes");
           Agenda.adiciona("nome 3", "telefone", "detalhes");
+          Agenda.visualizar();
+          Agenda.remover(2);
+          Agenda.visualizar();
     }
 }
