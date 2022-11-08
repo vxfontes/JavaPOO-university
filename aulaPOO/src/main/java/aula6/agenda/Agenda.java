@@ -1,5 +1,6 @@
 package aula6.agenda;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -10,29 +11,64 @@ public abstract class Agenda {
     
     static LinkedList<Contato> agenda = new LinkedList<>();
     
+    
     public static void adiciona(String nome, String telefone, String detalhes) {
         agenda.add(new Contato(nome, telefone, detalhes));
+        
     }
 
     public static void visualizar() {
         agenda.stream().map(Contato::toString).forEach(System.out::println);
     }
     
-    public static void buscar(int id) {
+    public static ArrayList<String> vet() {
+        int i = 0;
+        ArrayList<String> nomeDosContatos = new ArrayList<>();
         for (Contato contato : agenda) {
-            if(contato.getId() == id)
-                System.out.println(contato.toString());
-            else
-                System.out.println("nao é esse contato");
+            i++;
+            nomeDosContatos.add(contato.getNome());
+            
         }
+        return nomeDosContatos;
+        
     }
     
-    public static void remover(int id) {
-        for (Contato contato : agenda) {
-            if(contato.getId() == id)
-                agenda.remove(contato);
-            else
-                System.out.println("nao é esse contato");
+    public static ArrayList<String> remover(ArrayList<String> a, int b) {
+            ArrayList<String> aux = new ArrayList<>();
+            agenda.remove(b);
+            aux = Agenda.vet();
+            return aux;
+    }
+
+
+    public static void editar(String nome, String telefone, String descricao, int a){
+        Contato d = agenda.get(a);
+        if (nome.equals("")) {
+            nome = d.getNome();
         }
+        if (telefone.equals("")) {
+            telefone = d.getTelefone();
+        }
+        if (descricao.equals("")) {
+            descricao = d.getDetalhes();
+        }
+        Contato c = new Contato(nome, telefone, descricao);
+        agenda.set(a, c);
+      
+    }
+    public static String mostraNome(int a){
+        Contato b = agenda.get(a);
+        String c = b.getNome();
+        return c;
+    }
+    public static String mostraTelefone(int a){
+        Contato b = agenda.get(a);
+        String c = b.getTelefone();
+        return c;
+    }
+    public static String mostraDetalhes(int a){
+        Contato b = agenda.get(a);
+        String c = b.getDetalhes();
+        return c;
     }
 }
